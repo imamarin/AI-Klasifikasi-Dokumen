@@ -5,6 +5,19 @@ import zipfile
 from classifier import classify_text
 from utils import extract_zip, read_file
 
+st.set_page_config(page_title="Kenan AI", page_icon="📁", layout="wide")
+
+# CSS untuk menyembunyikan logo GitHub (ikon kanan atas)
+hide_github_icon = """
+    <style>
+       .st-emotion-cache-1p1m4ay{
+            visibility: hidden;
+        }
+    </style>
+"""
+st.markdown(hide_github_icon, unsafe_allow_html=True)
+
+
 # Judul aplikasi
 st.title("📁 Kenan AI - Klasifikasi Dokumen")
 st.write("Upload file `.zip` berisi dokumen, dan sistem akan mengklasifikasikan ke kategori yang dipilih.")
@@ -114,4 +127,5 @@ if uploaded_zip:
                 file_name=zip_filename,
                 mime="application/zip"
             )
+
 
